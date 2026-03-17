@@ -5,367 +5,205 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Informe de Situación de la Universidad Complutense de Madrid, año 2024. Presentado ante el Claustro Universitario el 2 de junio de 2025.">
 <meta name="author" content="Universidad Complutense de Madrid">
-<meta name="keywords" content="UCM, Universidad Complutense de Madrid, informe, situación, 2024, transparencia, rector">
-<title>Informe de Situación UCM 2024 — Universidad Complutense de Madrid</title>
+<title>Informe de Situación UCM 2024 — Portal de Transparencia UCM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ucm:    #b71234;
+  --ucm-d:  #8b0d27;
+  --ucm-l:  #f5e6ea;
+  --ucm-ll: #fdf4f6;
+  --gris:   #1c1c2e;
+  --gris-m: #5a6478;
+  --gris-c: #f0f3f7;
+  --gris-b: #e4e9f0;
+  --blanco: #ffffff;
+  --fn: 'DM Sans', system-ui, sans-serif;
+  --fd: 'DM Serif Display', Georgia, serif;
+  --fm: 'Source Code Pro', monospace;
+  --dur: .32s;
+  --ease: cubic-bezier(.4,0,.2,1);
+  --sh-s: 0 1px 4px rgba(0,0,0,.06);
+  --sh-m: 0 4px 20px rgba(0,0,0,.08);
+  --focus: #005fcc;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
+html { scroll-behavior:smooth; font-size:15px }
+body { font-family:var(--fn); background:var(--gris-c); color:var(--gris); line-height:1.6; min-height:100vh }
+a { color:inherit; text-decoration:none }
 
-  :root {
-    --ucm-red: #b71234;
-    --ucm-red-dark: #8c0e27;
-    --text-primary: #1a1a1a;
-    --text-secondary: #444;
-    --text-muted: #666;
-    --bg-page: #f4f4f4;
-    --bg-card: #ffffff;
-    --bg-section-header: #fdf0f3;
-    --border-light: #e8d0d6;
-    --focus-color: #005fcc;
-  }
+/* Skip link */
+.skip-link { position:absolute; top:-100%; left:0; background:var(--ucm); color:#fff; padding:12px 20px; font-size:15px; z-index:10000; border-radius:0 0 6px 0; }
+.skip-link:focus { top:0; outline:3px solid var(--focus); }
 
-  /* Skip link */
-  .skip-link {
-    position: absolute;
-    top: -100%;
-    left: 0;
-    background: var(--ucm-red);
-    color: #fff;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    z-index: 10000;
-    border-radius: 0 0 6px 0;
-    text-decoration: none;
-  }
-  .skip-link:focus { top: 0; }
+/* HERO — same as rendición de cuentas */
+.hero {
+  background: linear-gradient(135deg,#b71234 0%,#8b0d27 100%);
+  color: var(--blanco);
+  padding: 18px 32px;
+  border-radius: 12px 12px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.hero-inner { position:relative; max-width:1100px; margin:0 auto; display:flex; align-items:flex-start; gap:18px }
+.hero-icon { width:52px; height:52px; background:rgba(255,255,255,.15); border-radius:12px; border:1px solid rgba(255,255,255,.25); display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0; margin-top:2px }
+.hero-text h1 { font-family:var(--fn); font-size:1.4rem; font-weight:600; line-height:1.2; margin-bottom:4px }
+.hero-text p { font-size:.85rem; color:rgba(255,255,255,.88); max-width:560px; line-height:1.5 }
 
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--text-primary);
-    background-color: var(--bg-page);
-  }
+/* LAYOUT */
+.layout { max-width:1100px; margin:0 auto; padding:28px 20px 60px; display:grid; grid-template-columns:220px 1fr; gap:28px; align-items:start }
 
-  /* Header */
-  header {
-    background: var(--ucm-red);
-    color: #fff;
-    padding: 20px 28px 16px;
-    max-width: 900px;
-    margin: 24px auto 0;
-    border-radius: 12px 12px 0 0;
-  }
-  .header-inner {
-    max-width: 100%;
-  }
-  header .institution {
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    opacity: 0.85;
-    margin-bottom: 6px;
-  }
-  header h1 {
-    font-size: clamp(14px, 1.8vw, 19px);
-    font-weight: bold;
-    line-height: 1.25;
-    margin-bottom: 6px;
-  }
-  header .doc-meta {
-    font-size: 12px;
-    opacity: 0.8;
-  }
+@media (max-width:780px) {
+  .layout { grid-template-columns:1fr; padding:16px 14px 40px }
+  .sidebar { display:none }
+  .hero { padding:18px 20px 16px; border-radius:0 }
+  .hero-text h1 { font-size:1.2rem }
+}
 
-  /* Layout */
-  .page-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 16px 16px 60px;
-    display: flex;
-    gap: 28px;
-    align-items: flex-start;
-  }
+/* SIDEBAR */
+.sidebar { position:sticky; top:16px; background:var(--blanco); border-radius:12px; border:1px solid var(--gris-b); overflow:hidden; box-shadow:var(--sh-s) }
+.sidebar-hdr { background:linear-gradient(135deg,#d42b4f 0%,#e8365d 100%); color:var(--blanco); padding:12px 16px; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em }
+.nav-list { list-style:none; padding:8px 0; max-height:80vh; overflow-y:auto }
+.nav-item a { display:flex; align-items:center; gap:8px; padding:7px 16px; font-size:.79rem; font-weight:500; color:var(--gris-m); transition:all var(--dur) var(--ease); border-left:3px solid transparent; line-height:1.4 }
+.nav-item a:hover, .nav-item a.active { color:var(--ucm); background:var(--ucm-ll); border-left-color:var(--ucm) }
+.nav-item a:focus { outline:2px solid var(--focus); outline-offset:2px; border-radius:2px }
+.nav-item a .nav-num { font-family:var(--fm); font-size:.65rem; background:var(--gris-c); color:var(--gris-m); padding:1px 5px; border-radius:4px; min-width:22px; text-align:center; flex-shrink:0; transition:all var(--dur) var(--ease) }
+.nav-item a:hover .nav-num, .nav-item a.active .nav-num { background:var(--ucm-l); color:var(--ucm) }
+.nav-group { padding:10px 16px 3px; font-size:.67rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#aab4c4 }
+.nav-divider { height:1px; background:var(--gris-b); margin:4px 0 }
 
-  /* Navigation sidebar */
-  nav[aria-label="Índice del informe"] {
-    flex: 0 0 220px;
-    position: sticky;
-    top: 16px;
-  }
-  .nav-label {
-    font-size: 11px;
-    font-weight: bold;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 10px;
-  }
-  nav ol {
-    list-style: decimal;
-    padding-left: 18px;
-  }
-  nav li { margin-bottom: 4px; }
-  nav a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 12.5px;
-    line-height: 1.5;
-    display: block;
-  }
-  nav a:hover,
-  nav a:focus {
-    color: var(--ucm-red);
-    text-decoration: underline;
-    outline: 2px solid var(--focus-color);
-    outline-offset: 2px;
-    border-radius: 2px;
-  }
-  nav .nav-group-label {
-    font-size: 10px;
-    font-weight: bold;
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin: 12px 0 4px;
-    list-style: none;
-  }
+/* CONTENT */
+.content { display:flex; flex-direction:column; gap:20px }
 
-  /* Main content */
-  main { flex: 1 1 0; min-width: 0; }
+/* SECTION CARDS */
+.section-card {
+  background:var(--blanco); border-radius:14px; border:1px solid var(--gris-b);
+  overflow:hidden; box-shadow:var(--sh-s); transition:box-shadow var(--dur) var(--ease);
+  opacity:0; animation:fadeUp .45s var(--ease) forwards;
+}
+.section-card:nth-child(1) { animation-delay:.04s }
+.section-card:nth-child(2) { animation-delay:.09s }
+.section-card:nth-child(3) { animation-delay:.13s }
+.section-card:nth-child(4) { animation-delay:.17s }
+.section-card:nth-child(5) { animation-delay:.21s }
+.section-card:nth-child(n+6) { animation-delay:.25s }
+.section-card:hover { box-shadow:var(--sh-m) }
 
-  /* Sections */
-  .section-card {
-    background: var(--bg-card);
-    border-radius: 8px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
-    overflow: hidden;
-  }
-  .section-card:focus-within {
-    outline: 2px solid var(--focus-color);
-  }
-  .section-header {
-    background: var(--bg-section-header);
-    padding: 18px 24px;
-    border-bottom: 2px solid var(--ucm-red);
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .section-num {
-    font-size: 11px;
-    font-weight: bold;
-    color: var(--ucm-red);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    flex-shrink: 0;
-  }
-  .section-header h2 {
-    font-size: 17px;
-    color: var(--ucm-red);
-    font-weight: bold;
-    line-height: 1.3;
-  }
-  .section-body {
-    padding: 20px 24px;
-  }
-  .section-body p {
-    color: var(--text-secondary);
-    font-size: 14.5px;
-    margin-bottom: 12px;
-  }
-  .section-body p:last-child { margin-bottom: 0; }
+.section-hdr {
+  display:flex; align-items:center; gap:12px; padding:16px 20px;
+  background:var(--ucm-ll); border-bottom:2px solid var(--ucm);
+}
+.section-hdr-icon { width:34px; height:34px; background:var(--ucm); color:var(--blanco); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; font-family:var(--fm); flex-shrink:0 }
+.section-hdr-text h2 { font-family:var(--fd); font-size:1rem; font-weight:600; color:var(--ucm); line-height:1.25 }
+.section-hdr-text span { font-size:.73rem; color:var(--gris-m); margin-top:1px; display:block }
 
-  /* Subsections */
-  .subsection { margin-bottom: 20px; }
-  .subsection:last-child { margin-bottom: 0; }
-  .subsection h3 {
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--text-primary);
-    margin-bottom: 10px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid var(--border-light);
-  }
-  .subsection h4 {
-    font-size: 13.5px;
-    font-weight: bold;
-    color: var(--text-secondary);
-    margin: 12px 0 6px;
-  }
+/* BODY */
+.section-body { padding:20px 24px }
+.section-body p { color:var(--gris-m); font-size:.87rem; margin-bottom:12px; line-height:1.7 }
+.section-body p:last-child { margin-bottom:0 }
+.section-body strong { color:var(--gris); font-weight:700 }
 
-  /* Lists */
-  .section-body ul,
-  .section-body ol {
-    padding-left: 22px;
-    margin-bottom: 12px;
-    color: var(--text-secondary);
-    font-size: 14.5px;
-  }
-  .section-body li { margin-bottom: 6px; line-height: 1.6; }
-  .section-body ul li::marker { color: var(--ucm-red); }
+/* SUBSECTIONS */
+.subsection { margin-bottom:20px }
+.subsection:last-child { margin-bottom:0 }
+.subsection h3 { font-family:var(--fd); font-size:.95rem; font-weight:600; color:var(--gris); margin-bottom:10px; padding-bottom:6px; border-bottom:1px solid var(--gris-b) }
+.subsection h4 { font-size:.83rem; font-weight:700; color:var(--gris-m); margin:12px 0 6px; text-transform:uppercase; letter-spacing:.04em }
 
-  /* Data highlights */
-  .data-highlight {
-    background: #fff8f9;
-    border-left: 3px solid var(--ucm-red);
-    padding: 10px 14px;
-    border-radius: 0 4px 4px 0;
-    margin: 12px 0;
-    font-size: 14px;
-    color: var(--text-secondary);
-  }
-  .data-highlight strong { color: var(--ucm-red); }
+/* LISTS */
+.section-body ul, .section-body ol { padding-left:20px; margin-bottom:12px; color:var(--gris-m); font-size:.87rem }
+.section-body li { margin-bottom:6px; line-height:1.6 }
+.section-body ul li::marker { color:var(--ucm) }
 
-  /* Intro card */
-  .intro-card {
-    background: var(--ucm-red);
-    color: #fff;
-    border-radius: 8px;
-    padding: 20px 24px;
-    margin-bottom: 20px;
-  }
-  .intro-card p {
-    font-size: 14.5px;
-    line-height: 1.7;
-    margin-bottom: 10px;
-    opacity: 0.95;
-  }
-  .intro-card p:last-child { margin-bottom: 0; }
-  .intro-card strong { font-weight: bold; opacity: 1; }
+/* DATA HIGHLIGHT */
+.data-highlight { background:var(--ucm-ll); border-left:3px solid var(--ucm); padding:10px 14px; border-radius:0 6px 6px 0; margin:12px 0; font-size:.85rem; color:var(--gris-m); line-height:1.6 }
+.data-highlight strong { color:var(--ucm) }
 
-  /* Signature */
-  .signature {
-    font-style: italic;
-    margin-top: 14px;
-    font-size: 14px;
-    color: var(--text-muted);
-  }
+/* SIGNATURE */
+.signature { font-style:italic; margin-top:14px; font-size:.83rem; color:var(--gris-m) }
 
-  /* Tags */
-  .tag {
-    display: inline-block;
-    background: #f0dde2;
-    color: var(--ucm-red);
-    font-size: 11px;
-    font-weight: bold;
-    padding: 2px 8px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
+/* FOOTER */
+.footer { background:var(--blanco); border-top:1px solid var(--gris-b); padding:18px 40px; font-size:.77rem; color:var(--gris-m); display:flex; flex-direction:column; gap:6px; align-items:center; text-align:center; line-height:1.6 }
+.footer a { color:var(--ucm-d); text-decoration:underline; text-decoration-color:rgba(183,18,52,.25) }
+.footer a:hover { text-decoration-color:var(--ucm) }
 
-  /* Back to top */
-  .back-top {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    background: var(--ucm-red);
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    padding: 12px 18px;
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    text-decoration: none;
-    z-index: 999;
-  }
-  .back-top:focus {
-    outline: 3px solid var(--focus-color);
-    outline-offset: 3px;
-  }
-  .back-top:hover { background: var(--ucm-red-dark); }
+/* BACK TO TOP */
+#backTop { position:fixed; bottom:24px; right:24px; background:var(--ucm); color:var(--blanco); border:none; width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:18px; box-shadow:0 4px 16px rgba(183,18,52,.35); display:flex; align-items:center; justify-content:center; transition:all var(--dur) var(--ease); opacity:0; pointer-events:none; z-index:100 }
+#backTop.visible { opacity:1; pointer-events:auto }
+#backTop:hover { background:var(--ucm-d); transform:translateY(-2px) }
+#backTop:focus { outline:3px solid var(--focus); outline-offset:3px }
 
-  /* Footer */
-  footer {
-    text-align: center;
-    font-size: 12.5px;
-    color: var(--text-muted);
-    padding: 20px 16px 32px;
-    border-top: 1px solid #ddd;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  footer a { color: var(--text-muted); }
+:focus-visible { outline:3px solid var(--focus); outline-offset:2px; border-radius:2px }
 
-  /* Responsive */
-  @media (max-width: 780px) {
-    .page-wrapper { flex-direction: column; }
-    nav[aria-label="Índice del informe"] {
-      position: static;
-      flex: none;
-      width: 100%;
-    }
-    .section-header { flex-direction: column; gap: 4px; }
-  }
-
-  /* Focus styles */
-  :focus-visible {
-    outline: 3px solid var(--focus-color);
-    outline-offset: 2px;
-    border-radius: 2px;
-  }
-  a:focus { outline: 2px solid var(--focus-color); outline-offset: 2px; border-radius: 2px; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) } }
 </style>
 </head>
-
 <body>
 <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 
-<header role="banner">
-  <div class="header-inner">
-    <p class="institution" aria-label="Institución">Universidad Complutense de Madrid</p>
-    <h1 id="inicio">Informe de Situación de la UCM — Año 2024</h1>
-    <p class="doc-meta">Presentado ante el Claustro Universitario · 2 de junio de 2025 · Rector: Joaquín Goyache</p>
+<header class="hero" id="inicio" role="banner">
+  <div class="hero-inner">
+    <div class="hero-icon">📋</div>
+    <div class="hero-text">
+      <h1>Informe de Situación de la UCM — Año 2024</h1>
+      <p>Presentado ante el Claustro Universitario · 2 de junio de 2025 · Rector: Joaquín Goyache</p>
+    </div>
   </div>
 </header>
 
-<div class="page-wrapper">
+<div class="layout">
 
-  <!-- ÍNDICE LATERAL -->
-  <nav aria-labelledby="nav-label-id">
-    <p class="nav-label" id="nav-label-id">Índice</p>
-    <ol>
-      <li><a href="#presentacion">Presentación</a></li>
-      <li><a href="#resumen">Resumen Ejecutivo</a></li>
-      <li class="nav-group-label">Secretaría</li>
-      <li><a href="#secretaria">Secretaría General</a></li>
-      <li class="nav-group-label">Vicerrectorados</li>
-      <li><a href="#ord-academica">Ord. Académica y Profesorado</a></li>
-      <li><a href="#investigacion">Investigación y Transferencia</a></li>
-      <li><a href="#economia">Economía</a></li>
-      <li><a href="#centros">Centros y Departamentos</a></li>
-      <li><a href="#calidad">Calidad</a></li>
-      <li><a href="#estudiantes">Estudiantes</a></li>
-      <li><a href="#estudios">Estudios</a></li>
-      <li><a href="#formacion">Formación Permanente</a></li>
-      <li><a href="#tecnologia">Tecnología y Sostenibilidad</a></li>
-      <li><a href="#internacional">Relaciones Internacionales</a></li>
-      <li><a href="#cultura">Cultura, Deporte y Extensión</a></li>
-      <li><a href="#planificacion">Planificación y Coordinación</a></li>
-      <li><a href="#comunicacion">Comunicación</a></li>
-      <li class="nav-group-label">Gerencia y Delegaciones</li>
-      <li><a href="#gerencia">Gerencia</a></li>
-      <li><a href="#politicas-sociales">Políticas Sociales</a></li>
-      <li><a href="#igualdad">Igualdad</a></li>
-      <li><a href="#cultura-preventiva">Cultura Preventiva</a></li>
-      <li><a href="#consorcio">Consorcio Urbanístico</a></li>
-      <li><a href="#fundacion">Fundación General UCM</a></li>
-    </ol>
+  <!-- SIDEBAR -->
+  <nav class="sidebar" aria-labelledby="nav-label-id">
+    <div class="sidebar-hdr" id="nav-label-id">Índice</div>
+    <ul class="nav-list">
+      <li class="nav-item"><a href="#presentacion"><span class="nav-num">I</span> Presentación del Rector</a></li>
+      <li class="nav-item"><a href="#resumen"><span class="nav-num">II</span> Resumen Ejecutivo</a></li>
+      <li class="nav-divider"></li>
+      <li class="nav-group">Secretaría</li>
+      <li class="nav-item"><a href="#secretaria"><span class="nav-num">III</span> Secretaría General</a></li>
+      <li class="nav-divider"></li>
+      <li class="nav-group">Vicerrectorados</li>
+      <li class="nav-item"><a href="#ord-academica"><span class="nav-num">IV</span> Ord. Académica y Profesorado</a></li>
+      <li class="nav-item"><a href="#investigacion"><span class="nav-num">V</span> Investigación y Transferencia</a></li>
+      <li class="nav-item"><a href="#economia"><span class="nav-num">VI</span> Economía</a></li>
+      <li class="nav-item"><a href="#centros"><span class="nav-num">VII</span> Centros y Departamentos</a></li>
+      <li class="nav-item"><a href="#calidad"><span class="nav-num">VIII</span> Calidad</a></li>
+      <li class="nav-item"><a href="#estudiantes"><span class="nav-num">IX</span> Estudiantes</a></li>
+      <li class="nav-item"><a href="#estudios"><span class="nav-num">X</span> Estudios</a></li>
+      <li class="nav-item"><a href="#formacion"><span class="nav-num">XI</span> Formación Permanente</a></li>
+      <li class="nav-item"><a href="#tecnologia"><span class="nav-num">XII</span> Tecnología y Sostenibilidad</a></li>
+      <li class="nav-item"><a href="#internacional"><span class="nav-num">XIII</span> Relaciones Internacionales</a></li>
+      <li class="nav-item"><a href="#cultura"><span class="nav-num">XIV</span> Cultura, Deporte y Extensión</a></li>
+      <li class="nav-item"><a href="#planificacion"><span class="nav-num">XV</span> Planificación y Coordinación</a></li>
+      <li class="nav-item"><a href="#comunicacion"><span class="nav-num">XVI</span> Comunicación</a></li>
+      <li class="nav-divider"></li>
+      <li class="nav-group">Gerencia y Delegaciones</li>
+      <li class="nav-item"><a href="#gerencia"><span class="nav-num">XVII</span> Gerencia</a></li>
+      <li class="nav-item"><a href="#politicas-sociales"><span class="nav-num">XVIII</span> Políticas Sociales</a></li>
+      <li class="nav-item"><a href="#igualdad"><span class="nav-num">XIX</span> Igualdad</a></li>
+      <li class="nav-item"><a href="#cultura-preventiva"><span class="nav-num">XX</span> Cultura Preventiva</a></li>
+      <li class="nav-item"><a href="#consorcio"><span class="nav-num">XXI</span> Consorcio Urbanístico</a></li>
+      <li class="nav-item"><a href="#fundacion"><span class="nav-num">XXII</span> Fundación General UCM</a></li>
+    </ul>
   </nav>
 
   <!-- CONTENIDO PRINCIPAL -->
-  <main id="contenido-principal" tabindex="-1">
+  <main class="content" id="contenido-principal" tabindex="-1">
 
-    <!-- PRESENTACIÓN -->
+    <!-- I. PRESENTACIÓN -->
     <section id="presentacion" class="section-card" aria-labelledby="h-presentacion">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">I</span>
-        <h2 id="h-presentacion">Presentación del Rector</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">I</div>
+        <div class="section-hdr-text">
+          <h2 id="h-presentacion">Presentación del Rector</h2>
+          <span>Madrid, 26 de mayo de 2025 · Joaquín Goyache</span>
+        </div>
       </div>
       <div class="section-body">
         <p>Se presenta ante el Claustro de la Universidad Complutense de Madrid el informe de situación correspondiente al año 2024, un año, una vez más, marcado por importantes desafíos que han puesto a prueba a nuestra institución.</p>
@@ -380,46 +218,43 @@
       </div>
     </section>
 
-    <!-- RESUMEN EJECUTIVO -->
+    <!-- II. RESUMEN EJECUTIVO -->
     <section id="resumen" class="section-card" aria-labelledby="h-resumen">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">II</span>
-        <h2 id="h-resumen">Resumen Ejecutivo</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">II</div>
+        <div class="section-hdr-text">
+          <h2 id="h-resumen">Resumen Ejecutivo</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>La Universidad Complutense de Madrid (UCM) ha mantenido, a lo largo del año 2024, una evolución sostenida y constante en todas aquellas áreas que configuran su misión institucional, consolidando su compromiso con la mejora continua y el fortalecimiento de sus funciones esenciales en docencia, investigación, transferencia, proyección internacional y servicio a la sociedad.</p>
+        <p>La Universidad Complutense de Madrid ha mantenido, a lo largo del año 2024, una evolución sostenida en todas las áreas que configuran su misión institucional.</p>
 
         <div class="subsection">
           <h3>Secretaría General y Transparencia</h3>
-          <p>Se ha consolidado la labor de la Unidad de Transparencia y Participación, ampliando las áreas de información pública disponibles. Se publicaron los sexenios de investigación y transferencia, se lanzó una sección de Rendición de Cuentas y una página dedicada al Compromiso Social de la UCM.</p>
-          <div class="data-highlight"><strong>Índice Dyntra:</strong> 94,67% de cumplimiento, tercera universidad más transparente de España.</div>
-          <p>Se gestionaron 145 peticiones de acceso a la información pública (aumento del 30% respecto al año anterior). Se implantó un Sistema Interno de Información con Canal de Denuncias, operativo desde abril de 2024 (34 denuncias recibidas).</p>
+          <p>Se consolidó la Unidad de Transparencia y Participación, ampliando las áreas de información pública. Se publicaron los sexenios de investigación y transferencia, se lanzó una sección de Rendición de Cuentas y se implantó un Sistema Interno de Información con Canal de Denuncias, operativo desde abril de 2024.</p>
+          <div class="data-highlight"><strong>Índice Dyntra:</strong> 94,67% de cumplimiento, tercera universidad más transparente de España. Se gestionaron <strong>145 peticiones</strong> de acceso a la información pública (+30% respecto al año anterior).</div>
         </div>
 
         <div class="subsection">
           <h3>Ordenación Académica y Profesorado</h3>
           <p>Año marcado por la aplicación de la LOSU. Se emprendieron medidas de estabilización del profesorado, reduciendo la temporalidad en más de un centenar de departamentos.</p>
-          <div class="data-highlight"><strong>118 plazas permanentes</strong> dotadas para profesores ayudantes doctores. Incremento del 5% en el PDI permanente.</div>
+          <div class="data-highlight"><strong>118 plazas permanentes</strong> dotadas para profesores ayudantes doctores · Incremento del <strong>5%</strong> en el PDI permanente.</div>
         </div>
 
         <div class="subsection">
           <h3>Investigación y Transferencia</h3>
-          <div class="data-highlight">
-            <strong>905</strong> solicitudes tramitadas de proyectos nacionales · <strong>326</strong> concedidas · <strong>149</strong> propuestas presentadas a Horizonte Europa · <strong>8 ayudas</strong> REDLAB por valor de 5,2 M€ para renovación de CAIs.
-          </div>
-          <p>Se inscribió la Oficina de Transferencia de la UCM en el Registro de Oficinas de Transferencia (OTC). Se gestionaron 750 contratos artículo 60 LOSU, se registraron 82 patentes, modelos de utilidad y registros de propiedad intelectual.</p>
+          <div class="data-highlight"><strong>905</strong> solicitudes tramitadas de proyectos nacionales · <strong>326</strong> concedidas · <strong>149</strong> propuestas a Horizonte Europa · <strong>8 ayudas REDLAB</strong> por valor de 5,2 M€ para renovación de CAIs.</div>
+          <p>Se gestionaron 750 contratos artículo 60 LOSU y se registraron 82 patentes, modelos de utilidad y registros de propiedad intelectual.</p>
         </div>
 
         <div class="subsection">
           <h3>Economía</h3>
-          <div class="data-highlight"><strong>Presupuesto 2024:</strong> 632,4 M€ (incremento de 14,4 M€ respecto a 2023). Déficit presupuestario no financiero de -64,5 M€ en el ejercicio 2023.</div>
-          <p>Se aprobó un nuevo Modelo de Asignación de Presupuesto a Facultades estructurado en cuatro ejes: cuota fija (10%), financiación estructural basal (60%), financiación por necesidades singulares (20%) y financiación por objetivos (10%).</p>
+          <div class="data-highlight"><strong>Presupuesto 2024:</strong> 632,4 M€ (+14,4 M€ respecto a 2023) · Déficit presupuestario no financiero de <strong>-64,5 M€</strong> en el ejercicio 2023.</div>
         </div>
 
         <div class="subsection">
           <h3>Calidad</h3>
-          <div class="data-highlight"><strong>Programa Docentia:</strong> 1.800 docentes evaluados, más del 71% con calificación de Excelente (25%) o Muy Positivo (46,33%). <strong>QS 5 Stars:</strong> 883/1.000 puntos, calificación de Excelente.</div>
-          <p>Incremento de participación en innovación docente: +18% en INNOVA-Docencia y +24% en INNOVA-Gestión. Veinte de los veintitrés CAIs certificados con ISO 9001:2015.</p>
+          <div class="data-highlight"><strong>Programa Docentia:</strong> 1.800 docentes evaluados, más del <strong>71%</strong> con calificación Excelente (25%) o Muy Positivo (46,33%) · <strong>QS 5 Stars:</strong> 883/1.000 puntos, calificación de Excelente.</div>
         </div>
 
         <div class="subsection">
@@ -429,12 +264,12 @@
 
         <div class="subsection">
           <h3>Tecnología y Sostenibilidad</h3>
-          <div class="data-highlight"><strong>UI GreenMetric:</strong> Primera universidad española por cuarto año consecutivo. Única española en el top 50. Reducción del consumo eléctrico en 820 MWh y ahorro en coste energético de 1,2 M€.</div>
+          <div class="data-highlight"><strong>UI GreenMetric:</strong> Primera universidad española por cuarto año consecutivo. Única española en el top 50 · Reducción del consumo eléctrico en <strong>820 MWh</strong> y ahorro en coste energético de <strong>1,2 M€</strong>.</div>
         </div>
 
         <div class="subsection">
           <h3>Comunicación</h3>
-          <div class="data-highlight"><strong>93.410 menciones en medios</strong>, valoración económica equivalente de 1.027 M€. Superado el millón de seguidores en redes sociales.</div>
+          <div class="data-highlight"><strong>93.410 menciones</strong> en medios · Valoración económica equivalente de <strong>1.027 M€</strong> · Superado el <strong>millón de seguidores</strong> en redes sociales.</div>
         </div>
 
         <div class="subsection">
@@ -444,108 +279,100 @@
 
         <div class="subsection">
           <h3>Fundación General UCM</h3>
-          <div class="data-highlight"><strong>Más de 2.400 proyectos de investigación</strong> gestionados por valor cercano a los 89 M€.</div>
+          <div class="data-highlight"><strong>Más de 2.400 proyectos</strong> de investigación gestionados por valor cercano a los <strong>89 M€</strong>.</div>
         </div>
       </div>
     </section>
 
-    <!-- SECRETARÍA GENERAL -->
+    <!-- III. SECRETARÍA GENERAL -->
     <section id="secretaria" class="section-card" aria-labelledby="h-secretaria">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">III</span>
-        <h2 id="h-secretaria">Secretaría General</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">III</div>
+        <div class="section-hdr-text">
+          <h2 id="h-secretaria">Secretaría General</h2>
+          <span>Transparencia, administración electrónica, estatutos y archivo</span>
+        </div>
       </div>
       <div class="section-body">
-        <p>Se presentan en esta sección los datos y acciones más relevantes de la Secretaría General en sus ámbitos de transparencia, administración electrónica, registro y archivo.</p>
-
         <div class="subsection">
           <h3>A. Transparencia</h3>
-          <p>La Unidad de Transparencia y Participación se encarga de aplicar y garantizar el cumplimiento de la normativa sobre transparencia en la UCM. Su trabajo se basa en la Ley 19/2013 sobre Transparencia, Acceso a la Información Pública y Buen Gobierno, y especialmente en la Ley 10/2019 de Transparencia y Participación de la Comunidad de Madrid.</p>
-          <h4>Publicidad Activa</h4>
-          <p>Durante 2024, se ha reforzado el compromiso de la UCM con la transparencia, impulsando nuevas áreas de información pública. Entre las principales novedades:</p>
+          <p>La Unidad de Transparencia y Participación aplica la Ley 19/2013 sobre Transparencia y la Ley 10/2019 de Transparencia de la Comunidad de Madrid. Entre las principales novedades de 2024:</p>
           <ul>
-            <li>Publicación de los sexenios de investigación y transferencia mediante una nueva página web.</li>
-            <li>Creación de la página de Rendición de Cuentas.</li>
-            <li>Creación de una página dedicada al Compromiso Social de la UCM.</li>
+            <li>Publicación de los sexenios de investigación y transferencia mediante nueva página web.</li>
+            <li>Creación de la página de Rendición de Cuentas y de una página dedicada al Compromiso Social de la UCM.</li>
             <li>Renovación del sello de máxima categoría de la Fundación Haz.</li>
             <li>Mejora en el índice Dyntra: 94,67% de cumplimiento (tercera posición nacional).</li>
           </ul>
-          <h4>Acceso a la Información Pública</h4>
-          <p>En 2024, la Unidad de Transparencia recibió 145 peticiones: 86 solicitudes de información pública resueltas en plazo y 59 redirigidas al órgano competente. Esto supone un incremento del 30% respecto al año anterior.</p>
-          <h4>Sistema Interno de Información</h4>
-          <p>En cumplimiento de la Ley 2/2023 sobre protección de informantes, se ha implantado un Sistema Interno de Información con un Canal Interno para denuncias, operativo desde abril de 2024. Se han recibido 34 denuncias, de las que 26 fueron inadmitidas por no ajustarse a los requisitos legales.</p>
+          <p>En 2024 se recibieron 145 peticiones de acceso a la información pública (+30% respecto al año anterior). En cumplimiento de la Ley 2/2023 sobre protección de informantes, se implantó un Canal Interno de Denuncias operativo desde abril de 2024, con 34 denuncias recibidas (26 inadmitidas por no ajustarse a los requisitos legales).</p>
         </div>
 
         <div class="subsection">
           <h3>B. Administración Electrónica y Registro</h3>
-          <p>Alcanzado un 97% de digitalización en la UCM, los esfuerzos se centran ahora en consolidar una administración ágil y simplificada. Se está desarrollando un Manual de ayuda para la simplificación administrativa y una Guía de gestión para cargos académicos. Se ha rediseñado la página web del Registro General y la web Normativa UCM para mejorar la accesibilidad.</p>
+          <p>Alcanzado un 97% de digitalización en la UCM, los esfuerzos se centran en consolidar una administración ágil y simplificada. Se está desarrollando un Manual de ayuda para la simplificación administrativa y una Guía de gestión para cargos académicos. Se ha rediseñado la página web del Registro General y la web Normativa UCM para mejorar la accesibilidad.</p>
         </div>
 
         <div class="subsection">
           <h3>C. Estatutos y Normativa</h3>
-          <p>La Secretaría General ha prestado apoyo técnico y administrativo a la Comisión de Estatutos, encargada de adaptar la normativa universitaria a la LOSU, y a los trabajos de reforma del Reglamento de la Delegación Central de Estudiantes, aprobado por el Claustro en mayo de 2024.</p>
+          <p>La Secretaría General ha prestado apoyo técnico a la Comisión de Estatutos para adaptar la normativa universitaria a la LOSU, y a los trabajos de reforma del Reglamento de la Delegación Central de Estudiantes, aprobado por el Claustro en mayo de 2024.</p>
         </div>
 
         <div class="subsection">
           <h3>D. Archivo y Gestión Documental</h3>
-          <p>Ante el reto conseguido de una digitalización del 97% de la gestión, el Archivo está avanzando en la ejecución de la Política del Documento Electrónico, aprobada por el Consejo de Gobierno en 2023. Se está trabajando en la conformación de un expediente electrónico interoperable con garantías de custodia y accesibilidad permanente.</p>
+          <p>El Archivo avanza en la ejecución de la Política del Documento Electrónico (aprobada por el Consejo de Gobierno en 2023), trabajando en la conformación de un expediente electrónico interoperable con garantías de custodia y accesibilidad permanente.</p>
         </div>
       </div>
     </section>
 
-    <!-- VICERRECTORADO ORDENACIÓN ACADÉMICA -->
+    <!-- IV. ORDENACIÓN ACADÉMICA -->
     <section id="ord-academica" class="section-card" aria-labelledby="h-ord-academica">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">IV</span>
-        <h2 id="h-ord-academica">Vicerrectorado de Ordenación Académica y Profesorado</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">IV</div>
+        <div class="section-hdr-text">
+          <h2 id="h-ord-academica">Vicerrectorado de Ordenación Académica y Profesorado</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>La actividad del Vicerrectorado de Ordenación Académica y Profesorado en el año 2024 se ha visto articulada básicamente por la Ley Orgánica 2/2023 del Sistema Universitario (LOSU), sus normas de desarrollo y aquellas que se dictan para su implementación.</p>
+        <p>La actividad del Vicerrectorado en 2024 se articuló fundamentalmente en torno a la LOSU (Ley Orgánica 2/2023 del Sistema Universitario) y sus normas de desarrollo.</p>
 
         <div class="subsection">
           <h3>Implementación de la LOSU</h3>
-          <p>Se inició la estabilización del profesorado asociado, como exige la LOSU, eliminando la temporalidad en 110 departamentos-áreas de conocimiento de los 159 existentes en la Universidad. Se han aprobado dedicaciones de los profesores asociados inferiores a las 90 horas anuales para aquellas titulaciones que lo requieran.</p>
+          <p>Se inició la estabilización del profesorado asociado, eliminando la temporalidad en 110 de los 159 departamentos-áreas de conocimiento existentes en la Universidad.</p>
         </div>
 
         <div class="subsection">
           <h3>Plan de Actuaciones en materia de Profesorado</h3>
-          <p>El Plan de Actuaciones 2024 mantuvo los programas de estabilización y promoción, reorientando los de fortalecimiento y potenciación estratégica hacia departamentos con menor presencia de profesorado permanente.</p>
-          <div class="data-highlight">
-            <strong>118 plazas permanentes</strong> dotadas para profesores ayudantes doctores · Incremento del <strong>5%</strong> en PDI permanente · Incremento del <strong>3%</strong> en PDI funcionario.
-          </div>
-          <p>Al final de año se aprobó el Plan de Actuaciones en materia de Profesorado 2025-2027, con prioridad en la estabilización de los Profesores Ayudantes Doctores que finalicen su contrato.</p>
+          <div class="data-highlight"><strong>118 plazas permanentes</strong> dotadas para profesores ayudantes doctores · Incremento del <strong>5%</strong> en PDI permanente · Incremento del <strong>3%</strong> en PDI funcionario.</div>
+          <p>Se aprobó el Plan de Actuaciones en materia de Profesorado 2025-2027, con prioridad en la estabilización de los Profesores Ayudantes Doctores que finalicen su contrato.</p>
         </div>
 
         <div class="subsection">
           <h3>Programa de Incorporación de Talento</h3>
-          <p>La Universidad Complutense participó activamente en el Programa de Incorporación de Talento Docente e Investigador a las Universidades Públicas, impulsado por el Ministerio y la Comunidad de Madrid. En diciembre se publicó el convenio entre el Ministerio, la Comunidad de Madrid y las Universidades Públicas de Madrid para la financiación y estabilización de estas plazas. En virtud de este programa, la UCM ha incorporado ya <strong>28 plazas</strong> para su financiación.</p>
+          <p>La UCM participó en el Programa de Incorporación de Talento Docente e Investigador impulsado por el Ministerio y la Comunidad de Madrid, incorporando <strong>28 plazas</strong> para su financiación.</p>
         </div>
 
         <div class="subsection">
           <h3>Nueva Normativa</h3>
-          <p>Se adaptaron los procedimientos de selección de profesorado a las nuevas exigencias de la LOSU: la mayoría de los miembros de las comisiones de selección deben ser externos a la UCM y seleccionados por sorteo. Se aprobó también una nueva normativa sobre permisos sabáticos, estableciendo tres modalidades de licencia.</p>
+          <p>Se adaptaron los procedimientos de selección de profesorado a la LOSU: mayoría de miembros externos en comisiones de selección, seleccionados por sorteo. Se aprobó nueva normativa sobre permisos sabáticos con tres modalidades de licencia.</p>
         </div>
       </div>
     </section>
 
-    <!-- VICERRECTORADO INVESTIGACIÓN -->
+    <!-- V. INVESTIGACIÓN -->
     <section id="investigacion" class="section-card" aria-labelledby="h-investigacion">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">V</span>
-        <h2 id="h-investigacion">Vicerrectorado de Investigación y Transferencia</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">V</div>
+        <div class="section-hdr-text">
+          <h2 id="h-investigacion">Vicerrectorado de Investigación y Transferencia</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>El Vicerrectorado de Investigación y Transferencia se encarga de coordinar todo lo relacionado con la actividad investigadora promoviendo la interacción entre la Universidad y la sociedad.</p>
-
         <div class="subsection">
           <h3>A. Investigación</h3>
-          <h4>Ayudas y proyectos</h4>
           <ul>
             <li>Plan propio con Acciones Especiales: 79 ayudas (80.000 €) para congresos y 63 ayudas (87.440 €) para material científico.</li>
             <li>Proyectos nacionales: 905 solicitudes tramitadas, 326 concedidas.</li>
             <li>Oficina Europea: 149 propuestas presentadas (principalmente a Horizonte Europa) y 33 proyectos gestionados.</li>
           </ul>
-          <h4>Centros de Asistencia a la Investigación (CAI)</h4>
           <p>Seis CAIs pasaron a formar parte del registro REDLAB de la Comunidad de Madrid. La UCM fue beneficiaria de <strong>8 ayudas por valor de 5.225.000 €</strong> para renovación y mejora de equipamiento.</p>
         </div>
 
@@ -555,68 +382,54 @@
           <ul>
             <li>Gestión de 750 contratos artículo 60 de la LOSU.</li>
             <li>26 licitaciones nacionales e internacionales.</li>
-            <li>27 proyectos colaborativos y de fundaciones.</li>
-            <li>82 patentes, modelos de utilidad, marcas, registros de propiedad intelectual y contratos de licencia.</li>
+            <li>82 patentes, modelos de utilidad, marcas y registros de propiedad intelectual.</li>
             <li>Constitución de 2 ETCUs (Equipos de Trabajo de Centros Universitarios).</li>
           </ul>
         </div>
 
         <div class="subsection">
           <h3>C. Personal Investigador</h3>
-          <div class="data-highlight">
-            <strong>268 contratos</strong> de convocatorias postdoctorales y predoctorales tramitados · <strong>más de 1.000</strong> solicitudes gestionadas · <strong>468</strong> contratos de personal con cargo a proyectos.
-          </div>
+          <div class="data-highlight"><strong>268 contratos</strong> de convocatorias postdoctorales y predoctorales tramitados · <strong>más de 1.000</strong> solicitudes gestionadas · <strong>468</strong> contratos de personal con cargo a proyectos.</div>
         </div>
 
         <div class="subsection">
           <h3>D. Biblioteca</h3>
-          <p>La Biblioteca ha seguido dando servicio a la docencia y la investigación, destacando: la apertura extraordinaria de la Biblioteca María Zambrano, ayudas de préstamo de equipos informáticos para estudiantes, y la organización de 590 sesiones de formación. La Comisión de Biblioteca aprobó un nuevo modelo de reparto del gasto para la financiación de recursos electrónicos de adquisición centralizada.</p>
+          <p>Apertura extraordinaria de la Biblioteca María Zambrano, ayudas de préstamo de equipos informáticos para estudiantes y organización de <strong>590 sesiones de formación</strong>. Se aprobó un nuevo modelo de reparto del gasto para la financiación de recursos electrónicos.</p>
         </div>
       </div>
     </section>
 
-    <!-- VICERRECTORADO ECONOMÍA -->
+    <!-- VI. ECONOMÍA -->
     <section id="economia" class="section-card" aria-labelledby="h-economia">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">VI</span>
-        <h2 id="h-economia">Vicerrectorado de Economía</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">VI</div>
+        <div class="section-hdr-text">
+          <h2 id="h-economia">Vicerrectorado de Economía</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>El Vicerrectorado de Economía, junto con la Vicegerencia Económica, es el responsable de las cuestiones relativas a la planificación, coordinación y gestión de la política económica y de infraestructuras de la UCM.</p>
-
         <div class="subsection">
           <h3>Cuentas Anuales del Ejercicio 2023</h3>
           <ul>
-            <li>Las Cuentas Anuales del ejercicio 2023 fueron aprobadas por unanimidad por el Pleno del Consejo Social el 28 de junio de 2024.</li>
-            <li>Se presentaron las Cuentas Consolidadas de la UCM, integrando la Fundación General de la UCM (100%), la Fundación Parque Científico de Madrid (50%) y el Consorcio Urbanístico de la Ciudad Universitaria de Madrid (33,3%).</li>
-            <li>Presupuesto Inicial 2023: 618,0 M€, con modificaciones de crédito por 274,8 M€, alcanzando un Presupuesto Definitivo de 892,8 M€.</li>
+            <li>Aprobadas por unanimidad por el Pleno del Consejo Social el 28 de junio de 2024.</li>
+            <li>Presupuesto Inicial 2023: 618,0 M€; Presupuesto Definitivo (con modificaciones): 892,8 M€.</li>
           </ul>
-          <div class="data-highlight">
-            <strong>Déficit presupuestario no financiero:</strong> -64,5 M€ en 2023, con un desequilibrio estructural estimado de -31,8 M€.
-          </div>
+          <div class="data-highlight"><strong>Déficit presupuestario no financiero:</strong> -64,5 M€ en 2023 · Desequilibrio estructural estimado: -31,8 M€.</div>
         </div>
 
         <div class="subsection">
           <h3>Presupuesto 2024</h3>
-          <div class="data-highlight">
-            <strong>Presupuesto aprobado 2024: 632,4 M€</strong> (incremento de 14,4 M€, un 2,3% respecto a 2023). El Presupuesto 2024 se prorroga al ejercicio 2025 por no producirse una variación significativa de la financiación de la Comunidad.
-          </div>
+          <div class="data-highlight"><strong>632,4 M€</strong> aprobados (+14,4 M€, un 2,3% respecto a 2023). El Presupuesto 2024 se prorroga al ejercicio 2025.</div>
         </div>
 
         <div class="subsection">
           <h3>Nuevo Modelo de Asignación a Facultades</h3>
-          <p>El 25 de junio de 2024, el Consejo de Gobierno aprobó un nuevo Modelo de Asignación de Presupuesto a Facultades estructurado en cuatro ejes:</p>
-          <ul>
-            <li>Cuota fija: 10%</li>
-            <li>Financiación estructural basal: 60%</li>
-            <li>Financiación estructural por necesidades singulares: 20%</li>
-            <li>Financiación por Objetivos: 10%</li>
-          </ul>
+          <p>Aprobado el 25 de junio de 2024 por el Consejo de Gobierno, estructurado en cuatro ejes: cuota fija (10%), financiación estructural basal (60%), financiación por necesidades singulares (20%) y financiación por objetivos (10%).</p>
         </div>
 
         <div class="subsection">
           <h3>Administración Electrónica en Gestión Económica</h3>
-          <p>Desde enero de 2024, el Proyecto de Administración Electrónica en la Gestión Económica funciona con normalidad, incorporando mejoras como la Contratación Administrativa Electrónica con Sistemas Dinámicos de Adquisición y Subastas Electrónicas.</p>
+          <p>Desde enero de 2024 funciona con normalidad el Proyecto de Administración Electrónica, incorporando mejoras como Contratación Administrativa Electrónica con Sistemas Dinámicos de Adquisición y Subastas Electrónicas.</p>
         </div>
 
         <div class="subsection">
@@ -626,19 +439,18 @@
       </div>
     </section>
 
-    <!-- VICERRECTORADO CENTROS -->
+    <!-- VII. CENTROS Y DEPARTAMENTOS -->
     <section id="centros" class="section-card" aria-labelledby="h-centros">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">VII</span>
-        <h2 id="h-centros">Vicerrectorado de Centros y Departamentos</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">VII</div>
+        <div class="section-hdr-text">
+          <h2 id="h-centros">Vicerrectorado de Centros y Departamentos</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>Este Vicerrectorado coordina la gestión administrativa de las estructuras universitarias, presta atención personalizada a Facultades, Departamentos, Institutos y Centros Adscritos, y supervela los procesos electorales y el cumplimiento normativo.</p>
-
         <div class="subsection">
           <h3>Facultades y Departamentos</h3>
-          <p>Se asesoró a Facultades y Departamentos en la redacción de sus Reglamentos de Régimen Interno. Se aprobaron los Reglamentos de Régimen Interno de las Facultades de Ciencias Biológicas, Ciencias Físicas y Filología, y de los Departamentos de Mineralogía y Petrología, y de Odontología Conservadora y Prótesis.</p>
-          <p>En cuanto a modificaciones estructurales: se suprimió la sección departamental de Economía Financiera en la Facultad de Comercio y Turismo, y el Departamento de Biología Celular pasó a llamarse Departamento de Biología Celular e Histología.</p>
+          <p>Se aprobaron los Reglamentos de Régimen Interno de las Facultades de Ciencias Biológicas, Ciencias Físicas y Filología, y de los Departamentos de Mineralogía y Petrología y de Odontología Conservadora y Prótesis. El Departamento de Biología Celular pasó a llamarse Departamento de Biología Celular e Histología.</p>
         </div>
 
         <div class="subsection">
@@ -651,32 +463,28 @@
 
         <div class="subsection">
           <h3>Centros Adscritos</h3>
-          <p>Se propuso la implantación del Grado en Derecho y del Máster Universitario en Acceso a la Abogacía y la Procura en la ciudad de Barcelona por el Centro Adscrito ISDE. Se continuó el proceso de adscripción del Centro Universitario de Formación de la Policía Nacional.</p>
+          <p>Se propuso la implantación del Grado en Derecho y del Máster en Acceso a la Abogacía y la Procura en Barcelona por el Centro Adscrito ISDE. Se continuó el proceso de adscripción del Centro Universitario de Formación de la Policía Nacional.</p>
         </div>
       </div>
     </section>
 
-    <!-- VICERRECTORADO CALIDAD -->
+    <!-- VIII. CALIDAD -->
     <section id="calidad" class="section-card" aria-labelledby="h-calidad">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">VIII</span>
-        <h2 id="h-calidad">Vicerrectorado de Calidad</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">VIII</div>
+        <div class="section-hdr-text">
+          <h2 id="h-calidad">Vicerrectorado de Calidad</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>El Vicerrectorado de Calidad es el responsable de todas las cuestiones relativas a los procesos de evaluación de la calidad de las labores docente, investigadora y de gestión.</p>
-
         <div class="subsection">
           <h3>Programa Docentia</h3>
-          <div class="data-highlight">
-            <strong>1.800 docentes</strong> sometidos a evaluación trienal · <strong>71,33%</strong> con calificación Excelente (25%) o Muy Positivo (46,33%).
-          </div>
+          <div class="data-highlight"><strong>1.800 docentes</strong> sometidos a evaluación trienal · <strong>71,33%</strong> con calificación Excelente (25%) o Muy Positivo (46,33%).</div>
         </div>
 
         <div class="subsection">
           <h3>Innovación Docente</h3>
-          <div class="data-highlight">
-            Incremento de participación: <strong>+18%</strong> en INNOVA-Docencia y <strong>+24%</strong> en INNOVA-Gestión respecto al año anterior.
-          </div>
+          <div class="data-highlight">Incremento de participación: <strong>+18%</strong> en INNOVA-Docencia y <strong>+24%</strong> en INNOVA-Gestión respecto al año anterior.</div>
         </div>
 
         <div class="subsection">
@@ -694,25 +502,24 @@
           <ul>
             <li>Verificación de 9 Sistemas Internos de Garantía de Calidad (SIGC) de nuevas titulaciones.</li>
             <li>Aprobación de la Memoria anual de seguimiento de 283 títulos oficiales.</li>
-            <li>Seguimiento externo ordinario de 44 títulos y especial de 2 títulos.</li>
             <li>Veinte de los veintitrés CAIs certificados con la Norma ISO 9001:2015.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- VICERRECTORADO ESTUDIANTES -->
+    <!-- IX. ESTUDIANTES -->
     <section id="estudiantes" class="section-card" aria-labelledby="h-estudiantes">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">IX</span>
-        <h2 id="h-estudiantes">Vicerrectorado de Estudiantes</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">IX</div>
+        <div class="section-hdr-text">
+          <h2 id="h-estudiantes">Vicerrectorado de Estudiantes</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>El Vicerrectorado de Estudiantes tiene delegadas las competencias relativas a los estudiantes de todos los programas ofertados por la UCM. Coordina la orientación preuniversitaria, las pruebas de acceso, los procesos de admisión, matrícula y régimen académico.</p>
-
         <div class="subsection">
           <h3>Acceso y Admisión</h3>
-          <p>La UCM fue la <strong>universidad más demandada en el Distrito Único de Madrid</strong>, con un incremento general de estudiantes matriculados de nuevo ingreso. Se reforzaron las acciones de orientación mediante jornadas informativas, visitas a centros educativos y actividades de puertas abiertas.</p>
+          <p>La UCM fue la <strong>universidad más demandada en el Distrito Único de Madrid</strong>, con un incremento general de estudiantes matriculados de nuevo ingreso. Se reforzaron las acciones de orientación mediante jornadas informativas y actividades de puertas abiertas.</p>
         </div>
 
         <div class="subsection">
@@ -722,29 +529,28 @@
 
         <div class="subsection">
           <h3>Convivencia y Bienestar</h3>
-          <p>El programa de mentoría se consolidó como herramienta clave contra el abandono y la soledad no deseada, extendiéndose a nuevos centros y Colegios Mayores. Se profundizó en el cuidado de la salud mental del estudiantado a través del proyecto Campus in Recovery y el servicio Psicall.</p>
-          <p>Se mantuvo el Sistema Integral de Garantía de la Convivencia y se potenció el Observatorio del Estudiante, que canalizó propuestas sobre bienestar, abandono, diversidad y sostenibilidad.</p>
+          <p>El programa de mentoría se extendió a nuevos centros y Colegios Mayores como herramienta contra el abandono y la soledad no deseada. Se profundizó en el cuidado de la salud mental a través del proyecto Campus in Recovery y el servicio Psicall.</p>
         </div>
       </div>
     </section>
 
-    <!-- VICERRECTORADO ESTUDIOS -->
+    <!-- X. ESTUDIOS -->
     <section id="estudios" class="section-card" aria-labelledby="h-estudios">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">X</span>
-        <h2 id="h-estudios">Vicerrectorado de Estudios</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">X</div>
+        <div class="section-hdr-text">
+          <h2 id="h-estudios">Vicerrectorado de Estudios</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>El Vicerrectorado de Estudios es el responsable de todas las cuestiones relativas a los estudios oficiales de Grado, Máster y Doctorado de la UCM.</p>
-
         <div class="subsection">
           <h3>Nuevas Titulaciones (Curso 2024-2025)</h3>
           <ul>
             <li>Grado en Estudios Teatrales.</li>
             <li>Doble Grado en Educación Infantil y Primaria (Centro Adscrito Don Bosco).</li>
-            <li>Másteres Universitarios en: Ciencias y Tecnologías Analíticas y Bioanalíticas, Estética Contemporánea, Investigación sobre Cannabis Medicinal, y Relaciones Internacionales: Gobernanza Global.</li>
+            <li>Másteres en: Ciencias y Tecnologías Analíticas y Bioanalíticas, Estética Contemporánea, Investigación sobre Cannabis Medicinal, y Relaciones Internacionales: Gobernanza Global.</li>
           </ul>
-          <h4>Titulaciones verificadas para 2025-2026</h4>
+          <h4>Verificadas para 2025-2026</h4>
           <ul>
             <li>Joint Bachelor in Sustainability (Alianza Una Europa).</li>
             <li>Grado en Antropología Social y Cultural.</li>
@@ -755,97 +561,85 @@
 
         <div class="subsection">
           <h3>Gestión de Títulos</h3>
-          <div class="data-highlight">
-            <strong>19.982</strong> solicitudes tramitadas en el curso 2023-2024 · <strong>16.118</strong> títulos expedidos · <strong>1.381</strong> certificaciones sustitutorias · <strong>1.876</strong> suplementos europeos.
-          </div>
+          <div class="data-highlight"><strong>19.982</strong> solicitudes tramitadas en el curso 2023-2024 · <strong>16.118</strong> títulos expedidos · <strong>1.381</strong> certificaciones sustitutorias · <strong>1.876</strong> suplementos europeos.</div>
         </div>
 
         <div class="subsection">
           <h3>Doctorado</h3>
-          <div class="data-highlight">
-            <strong>810 tesis</strong> doctorales defendidas en el curso 2023-2024 · <strong>210</strong> con mención internacional · <strong>10</strong> mención industrial · <strong>11</strong> bajo cotutela.
-          </div>
-          <p>Se adaptaron los 56 programas de doctorado al nuevo Real Decreto 576/2023. Se pusieron en marcha la tercera fase del Joint Double PhD en Patrimonio Cultural (Una Europa) y el programa One Health. Se firmaron 22 convenios de cotutela con universidades de Europa y América Latina.</p>
-          <p>La Escuela de Doctorado (EDUCM) concedió 158 ayudas a la movilidad de un total de 325 solicitudes, y ofertó 58 actividades formativas transversales.</p>
-          <p>Se aprobó la nueva normativa que regula los estudios de doctorado en la UCM (Acuerdo del Consejo de Gobierno de 29 de octubre de 2024, BOUC nº 41).</p>
+          <div class="data-highlight"><strong>810 tesis</strong> doctorales defendidas en el curso 2023-2024 · <strong>210</strong> con mención internacional · <strong>10</strong> mención industrial · <strong>11</strong> bajo cotutela.</div>
+          <p>Se adaptaron los 56 programas de doctorado al nuevo Real Decreto 576/2023. La Escuela de Doctorado (EDUCM) concedió 158 ayudas a la movilidad de un total de 325 solicitudes y ofertó 58 actividades formativas transversales.</p>
         </div>
       </div>
     </section>
 
-    <!-- VICERRECTORADO FORMACIÓN PERMANENTE -->
+    <!-- XI. FORMACIÓN PERMANENTE -->
     <section id="formacion" class="section-card" aria-labelledby="h-formacion">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">XI</span>
-        <h2 id="h-formacion">Vicerrectorado de Formación Permanente, Empleabilidad y Emprendimiento</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">XI</div>
+        <div class="section-hdr-text">
+          <h2 id="h-formacion">Vicerrectorado de Formación Permanente, Empleabilidad y Emprendimiento</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>Sus competencias abarcan las prácticas externas, empleo, mejora de la empleabilidad, innovación y emprendimiento, y la organización e implantación de las enseñanzas de formación permanente.</p>
-
         <div class="subsection">
           <h3>Centro de Formación Permanente</h3>
-          <div class="data-highlight">
-            <strong>205 títulos</strong> que requieren titulación universitaria previa aprobados (+5,36%) · <strong>4.517 estudiantes</strong> matriculados (34,8% extranjeros) · <strong>140 títulos</strong> sin exigencia de titulación previa · <strong>2.758 estudiantes</strong>.
-          </div>
-          <p>Plan de Formación Integral del Profesorado: 112 cursos en tres convocatorias, total de 4.582 plazas (incremento del 16%).</p>
+          <div class="data-highlight"><strong>205 títulos</strong> que requieren titulación universitaria previa (+5,36%) · <strong>4.517 estudiantes</strong> matriculados (34,8% extranjeros) · <strong>140 títulos</strong> sin exigencia de titulación previa · <strong>2.758 estudiantes</strong>.</div>
+          <p>Plan de Formación Integral del Profesorado: 112 cursos en tres convocatorias, con un total de 4.582 plazas (+16%).</p>
         </div>
 
         <div class="subsection">
           <h3>Oficina de Prácticas y Empleo (OPE)</h3>
-          <p>La UCM asumió las obligaciones de cotización del 91,09% de las prácticas curriculares no remuneradas, en cumplimiento de la nueva legislación de Seguridad Social. Se tramitaron 1.302 adendas a convenios existentes. La Universidad mantiene convenios activos con <strong>10.131 entidades colaboradoras</strong>. Desde enero de 2024, nuevo portal de empleo para inserción laboral de estudiantes y egresados.</p>
+          <p>La UCM asumió las obligaciones de cotización del 91,09% de las prácticas curriculares no remuneradas. Se tramitaron 1.302 adendas a convenios existentes. La Universidad mantiene convenios activos con <strong>10.131 entidades colaboradoras</strong>.</p>
         </div>
 
         <div class="subsection">
           <h3>Oficina Complutense de Emprendimiento (Compluemprende)</h3>
-          <p>Red de 18 preincubadoras distribuidas en distintas facultades. Cuatro convocatorias gestionadas: Premios de Emprendimiento Social, Emprendimiento Universitario, ETCUs e Incentivos a la creación de empresas. El programa "Fábrica UCM" contó con la participación de <strong>758 estudiantes</strong>. Cinco startups complutenses presentaron proyectos en el South Summit.</p>
+          <p>Red de 18 preincubadoras distribuidas en distintas facultades. El programa "Fábrica UCM" contó con la participación de <strong>758 estudiantes</strong>. Cinco startups complutenses presentaron proyectos en el South Summit.</p>
         </div>
       </div>
     </section>
 
-    <!-- VICERRECTORADO TECNOLOGÍA -->
+    <!-- XII. TECNOLOGÍA Y SOSTENIBILIDAD -->
     <section id="tecnologia" class="section-card" aria-labelledby="h-tecnologia">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">XII</span>
-        <h2 id="h-tecnologia">Vicerrectorado de Tecnología y Sostenibilidad</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">XII</div>
+        <div class="section-hdr-text">
+          <h2 id="h-tecnologia">Vicerrectorado de Tecnología y Sostenibilidad</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>Este Vicerrectorado es responsable de las tecnologías de la información y la comunicación aplicadas a la docencia, investigación y gestión, la innovación en eficiencia energética, y las cuestiones relacionadas con la Agenda 2030 y los ODS.</p>
-
         <div class="subsection">
           <h3>A. Tecnología</h3>
           <ul>
-            <li>Campus Virtual: 87.324 usuarios distintos a lo largo del año. Se integraron 1.000 licencias de Kahoot y 2.000 de Genially.</li>
-            <li>Conclusión de doce proyectos unidigital que traen nuevos servicios a la UCM.</li>
+            <li>Campus Virtual: 87.324 usuarios distintos. Se integraron 1.000 licencias de Kahoot y 2.000 de Genially.</li>
+            <li>Conclusión de doce proyectos unidigital con nuevos servicios para la UCM.</li>
             <li>Estreno de la nueva web institucional.</li>
-            <li>Teletrabajo: ampliación de puestos para trabajadores y extensión a estudiantes (equipos virtuales 24h en varios centros).</li>
-            <li>Inteligencia Artificial: más de 2.000 profesores han completado los cursos formativos de IA.</li>
+            <li>Inteligencia Artificial: más de 2.000 profesores completaron cursos formativos de IA.</li>
           </ul>
         </div>
 
         <div class="subsection">
           <h3>B. Sostenibilidad</h3>
-          <div class="data-highlight">
-            <strong>UI GreenMetric:</strong> Primera universidad española por cuarto año consecutivo. Única española en el top 50. Primera posición nacional.
-          </div>
+          <div class="data-highlight"><strong>UI GreenMetric:</strong> Primera universidad española por cuarto año consecutivo. Única española en el top 50.</div>
           <ul>
-            <li>Continuación de la instalación de placas solares: terminación en Somosaguas e inicio en el campus de Moncloa.</li>
-            <li>Reducción del consumo eléctrico: <strong>820 MWh</strong> menos, ahorro en coste de <strong>1,2 M€</strong>.</li>
-            <li>Reducción del consumo de gas: ahorro en coste de <strong>3 M€</strong>.</li>
+            <li>Continuación de la instalación de placas solares: terminación en Somosaguas e inicio en Moncloa.</li>
+            <li>Reducción del consumo eléctrico: <strong>820 MWh</strong> menos, ahorro de <strong>1,2 M€</strong>.</li>
+            <li>Reducción del consumo de gas: ahorro de <strong>3 M€</strong>.</li>
             <li>Reducción del consumo energético del 25% y 36% respecto a 2022 y 2021.</li>
-            <li>Nuevo servicio de seguimiento de consumo de agua en toda la UCM.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- VICERRECTORADO RELACIONES INTERNACIONALES -->
+    <!-- XIII. RELACIONES INTERNACIONALES -->
     <section id="internacional" class="section-card" aria-labelledby="h-internacional">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">XIII</span>
-        <h2 id="h-internacional">Vicerrectorado de Relaciones Internacionales, Cooperación y Voluntariado</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">XIII</div>
+        <div class="section-hdr-text">
+          <h2 id="h-internacional">Vicerrectorado de Relaciones Internacionales, Cooperación y Voluntariado</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>Este Vicerrectorado es el órgano responsable de la promoción y firma de acuerdos y convenios con instituciones extranjeras, el desarrollo de la acción internacional y las políticas de cooperación para el desarrollo.</p>
-
         <div class="subsection">
           <h3>A. Relaciones Internacionales y Erasmus+</h3>
           <p>Gestión de una extensa red de convenios bilaterales y acuerdos Erasmus+, facilitando la movilidad internacional de estudiantes, PDI y PTGAS. Proyecto "Erasmus sin papel" para la digitalización de la gestión Erasmus.</p>
@@ -853,80 +647,65 @@
 
         <div class="subsection">
           <h3>B. Alianza Una Europa</h3>
-          <p>Participación activa en proyectos de docencia e investigación en sostenibilidad, inteligencia artificial, patrimonio cultural y salud global. Avances en:</p>
-          <ul>
-            <li>Bachelor of Arts in European Studies (BAES).</li>
-            <li>Nuevo grado en Sostenibilidad (BASUS).</li>
-            <li>Programa de doctorado en Patrimonio Cultural (Una Her).</li>
-            <li>Máster Erasmus Mundus en Ciencia de Datos e IA.</li>
-          </ul>
+          <p>Participación activa en proyectos de docencia e investigación en sostenibilidad, inteligencia artificial, patrimonio cultural y salud global. Avances en el Bachelor of Arts in European Studies (BAES), nuevo grado en Sostenibilidad (BASUS) y Máster Erasmus Mundus en Ciencia de Datos e IA.</p>
         </div>
 
         <div class="subsection">
           <h3>C. Unión Iberoamericana de Universidades (UIU)</h3>
-          <p>La UCM consolidó su liderazgo en la UIU bajo la presidencia del Rector Joaquín Goyache. Se firmó un convenio con la Fundación Carolina para el desarrollo de un curso sobre derechos humanos. Celebración del Congreso UIU y Cortes Supremas (sexta edición).</p>
+          <p>La UCM consolidó su liderazgo en la UIU bajo la presidencia del Rector Joaquín Goyache. Se firmó un convenio con la Fundación Carolina y se celebró el Congreso UIU y Cortes Supremas (sexta edición).</p>
         </div>
 
         <div class="subsection">
           <h3>D. Escuelas Complutenses</h3>
-          <p>La Escuela Complutense Latinoamericana celebró ediciones en Cartagena de Indias (Colombia), Santa Cruz de la Sierra (Bolivia) y Lima (Perú). La Escuela Complutense Africana avanzó en su institucionalización con un punto de información permanente en Malabo y un proyecto AECID para formación de profesorado en Guinea Ecuatorial y Camerún.</p>
+          <p>La Escuela Complutense Latinoamericana celebró ediciones en Cartagena de Indias, Santa Cruz de la Sierra y Lima. La Escuela Complutense Africana avanzó con un punto de información permanente en Malabo y un proyecto AECID en Guinea Ecuatorial y Camerún.</p>
         </div>
 
         <div class="subsection">
           <h3>E. Cooperación y Voluntariado</h3>
-          <p>Campaña de ayuda humanitaria tras la DANA de noviembre de 2024, movilizando a más de 1.100 voluntarios y voluntarias. Recaudación de más de <strong>20.000 €</strong> destinados a Cruz Roja, Cáritas y el Banco de Alimentos de Valencia. Se organizó la Jornada "Alianza por la Infancia" con 700 niños y 300 voluntarios en la UCM.</p>
+          <p>Campaña de ayuda humanitaria tras la DANA de noviembre de 2024, movilizando a más de <strong>1.100 voluntarios</strong> y recaudando más de <strong>20.000 €</strong> destinados a Cruz Roja, Cáritas y el Banco de Alimentos de Valencia.</p>
         </div>
       </div>
     </section>
 
-    <!-- VICERRECTORADO CULTURA -->
+    <!-- XIV. CULTURA, DEPORTE Y EXTENSIÓN -->
     <section id="cultura" class="section-card" aria-labelledby="h-cultura">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">XIV</span>
-        <h2 id="h-cultura">Vicerrectorado de Cultura, Deporte y Extensión Universitaria</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">XIV</div>
+        <div class="section-hdr-text">
+          <h2 id="h-cultura">Vicerrectorado de Cultura, Deporte y Extensión Universitaria</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>Responsable de la definición y ejecución de políticas culturales, deportivas y de prestaciones de los distintos colectivos que integran la UCM.</p>
-
         <div class="subsection">
           <h3>Cultura</h3>
-          <p>La actividad musical incluyó seis conciertos de la Orquesta Sinfónica, tres actuaciones del Coro UCM y ciclos como "Flamencos en Ruta" y "AIEnRuta-Jazz". En teatro, se celebró el XXVI Certamen de Teatro Universitario con más de 200 integrantes en 12 montajes, la IX Muestra de Teatro por la Igualdad y la X edición de CronoTeatro.</p>
+          <p>Seis conciertos de la Orquesta Sinfónica, tres actuaciones del Coro UCM y ciclos como "Flamencos en Ruta" y "AIEnRuta-Jazz". XXVI Certamen de Teatro Universitario con más de 200 integrantes en 12 montajes, IX Muestra de Teatro por la Igualdad y X edición de CronoTeatro.</p>
         </div>
 
         <div class="subsection">
           <h3>Deporte</h3>
-          <p>Se mejoraron las instalaciones deportivas de la Zona Sur. En competiciones internas (Trofeo Rector y Trofeo Alfonso XIII) participaron más de <strong>4.400 estudiantes</strong>. En el plano interuniversitario y nacional, se cosecharon <strong>86 medallas</strong>. La piscina de verano recibió a más de <strong>51.000 personas</strong>.</p>
+          <p>En competiciones internas (Trofeo Rector y Trofeo Alfonso XIII) participaron más de <strong>4.400 estudiantes</strong>. En el plano interuniversitario se cosecharon <strong>86 medallas</strong>. La piscina de verano recibió a más de <strong>51.000 personas</strong>.</p>
         </div>
 
         <div class="subsection">
           <h3>Universidad para Mayores</h3>
-          <div class="data-highlight">
-            <strong>4.212 matrículas</strong> entre el ciclo general, programas de especialización y cursos monográficos · <strong>101 docentes</strong> · <strong>203 materias</strong>. Alumnado: 50 a 88 años (media 62), 60% mujeres.
-          </div>
-          <p>En septiembre de 2024 se inauguró una nueva sede en el histórico Cuartel de Inválidos y Voluntarios a Caballo de San Lorenzo de El Escorial.</p>
+          <div class="data-highlight"><strong>4.212 matrículas</strong> entre el ciclo general, especialización y cursos monográficos · <strong>101 docentes</strong> · <strong>203 materias</strong>. Alumnado: 50 a 88 años (media 62), 60% mujeres.</div>
+          <p>En septiembre de 2024 se inauguró una nueva sede en el Cuartel de Inválidos y Voluntarios a Caballo de San Lorenzo de El Escorial.</p>
         </div>
       </div>
     </section>
 
-    <!-- VICERRECTORADO PLANIFICACIÓN -->
+    <!-- XV. PLANIFICACIÓN -->
     <section id="planificacion" class="section-card" aria-labelledby="h-planificacion">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">XV</span>
-        <h2 id="h-planificacion">Vicerrectorado de Planificación, Coordinación y Relaciones Institucionales</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">XV</div>
+        <div class="section-hdr-text">
+          <h2 id="h-planificacion">Vicerrectorado de Planificación, Coordinación y Relaciones Institucionales</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>Responsable de las relaciones de la UCM con administraciones, corporaciones e instituciones públicas y privadas de ámbito nacional e internacional.</p>
-
         <div class="subsection">
           <h3>Gestión de Convenios Nacionales</h3>
-          <div class="data-highlight">
-            Más de <strong>5.080 convenios</strong> suscritos con entidades nacionales vigentes · <strong>1.004 nuevos expedientes</strong> gestionados en el curso 2024-2025.
-          </div>
-        </div>
-
-        <div class="subsection">
-          <h3>Voluntariado y DANA</h3>
-          <p>Ante la DANA que afectó a la Comunidad Valenciana, la UCM organizó una campaña solidaria que movilizó a más de <strong>1.100 voluntarios</strong>. Se recaudaron más de <strong>20.000 €</strong> a través de una campaña de crowdfunding destinados a Cruz Roja, Cáritas y el Banco de Alimentos de Valencia.</p>
+          <div class="data-highlight">Más de <strong>5.080 convenios</strong> suscritos con entidades nacionales vigentes · <strong>1.004 nuevos expedientes</strong> gestionados en el curso 2024-2025.</div>
         </div>
 
         <div class="subsection">
@@ -936,57 +715,51 @@
       </div>
     </section>
 
-    <!-- VICERRECTORADO COMUNICACIÓN -->
+    <!-- XVI. COMUNICACIÓN -->
     <section id="comunicacion" class="section-card" aria-labelledby="h-comunicacion">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">XVI</span>
-        <h2 id="h-comunicacion">Vicerrectorado de Comunicación</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">XVI</div>
+        <div class="section-hdr-text">
+          <h2 id="h-comunicacion">Vicerrectorado de Comunicación</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>El Vicerrectorado de Comunicación es el órgano responsable de gestionar la imagen institucional de la UCM y de planificar, coordinar y supervisar todas las acciones de comunicación interna y externa.</p>
-
         <div class="subsection">
           <h3>Presencia en Medios</h3>
-          <div class="data-highlight">
-            <strong>93.410 menciones</strong> en medios · Valoración económica equivalente: <strong>1.027 M€</strong> · Más de <strong>140 comunicados de prensa</strong> · <strong>341 noticias</strong> en Tribuna Complutense · <strong>321 actos</strong> cubiertos.
-          </div>
+          <div class="data-highlight"><strong>93.410 menciones</strong> en medios · Valoración económica equivalente: <strong>1.027 M€</strong> · Más de <strong>140 comunicados de prensa</strong> · <strong>341 noticias</strong> en Tribuna Complutense · <strong>321 actos</strong> cubiertos.</div>
         </div>
 
         <div class="subsection">
           <h3>Redes Sociales</h3>
-          <div class="data-highlight">
-            Superado el <strong>millón de seguidores</strong> en todas las plataformas. Apertura de nuevos perfiles en Bluesky y Threads.
-          </div>
+          <div class="data-highlight">Superado el <strong>millón de seguidores</strong> en todas las plataformas. Apertura de nuevos perfiles en Bluesky y Threads.</div>
         </div>
 
         <div class="subsection">
           <h3>Diseño y Publicaciones</h3>
-          <p>Más de 200 intervenciones de diseño y publicaciones, incluyendo campañas publicitarias en localizaciones de la Comunidad de Madrid (Callao y otras) y materiales gráficos para eventos, titulaciones y unidades universitarias.</p>
+          <p>Más de 200 intervenciones de diseño y publicaciones, incluyendo campañas publicitarias en localizaciones de la Comunidad de Madrid y materiales gráficos para eventos, titulaciones y unidades universitarias.</p>
         </div>
       </div>
     </section>
 
-    <!-- GERENCIA -->
+    <!-- XVII. GERENCIA -->
     <section id="gerencia" class="section-card" aria-labelledby="h-gerencia">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">XVII</span>
-        <h2 id="h-gerencia">Gerencia</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">XVII</div>
+        <div class="section-hdr-text">
+          <h2 id="h-gerencia">Gerencia</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>La Gerencia es responsable de la gestión de los servicios administrativos y económicos, adopta las decisiones relativas a la gestión ordinaria del PTGAS y gestiona el presupuesto y equipamiento de los servicios de la Universidad.</p>
-
         <div class="subsection">
           <h3>Vicegerencia de Obras y Mantenimiento</h3>
-          <div class="data-highlight">
-            <strong>33,5 M€</strong> de inversión total en mejora de Centros · <strong>13.632 incidencias</strong> atendidas por personal propio · <strong>10.280</strong> por contratas externas.
-          </div>
-          <p>Obras destacadas: nuevo edificio de la Facultad de Ciencias Económicas, nueva Central Térmica, instalaciones contra incendios y climatización del Paraninfo, nuevo TAC del Hospital Clínico Veterinario, rehabilitación de la tercera planta de la Facultad de Enfermería.</p>
+          <div class="data-highlight"><strong>33,5 M€</strong> de inversión total en mejora de Centros · <strong>13.632 incidencias</strong> atendidas por personal propio · <strong>10.280</strong> por contratas externas.</div>
+          <p>Obras destacadas: nuevo edificio de la Facultad de Ciencias Económicas, nueva Central Térmica, instalaciones contra incendios y climatización del Paraninfo, nuevo TAC del Hospital Clínico Veterinario.</p>
         </div>
 
         <div class="subsection">
           <h3>Vicegerencia de Recursos Humanos</h3>
           <ul>
-            <li>PTGAS funcionario: convocadas 147 plazas de acceso libre por méritos y concurso-oposición, 60 de promoción interna, 37 de acceso libre. Concurso de traslados con 191 plazas (niveles 16-21).</li>
+            <li>PTGAS funcionario: convocadas 147 plazas de acceso libre, 60 de promoción interna, 37 de acceso libre. Concurso de traslados con 191 plazas.</li>
             <li>Formación: 102 acciones formativas con más de 2.873 participantes. 34 cursos de idiomas con 690 trabajadores.</li>
             <li>Teletrabajo: <strong>1.156 solicitudes aprobadas</strong> y entrega de <strong>628 equipos informáticos</strong>.</li>
           </ul>
@@ -994,58 +767,49 @@
 
         <div class="subsection">
           <h3>Vicegerencia de Contratación Administrativa</h3>
-          <div class="data-highlight">
-            <strong>77,3 M€</strong> en contratos gestionados: 6,7 M€ en obras, 70,6 M€ en suministros y servicios, 4 M€ en contratos menores. Contratos de limpieza: 32,6 M€.
-          </div>
-          <p>Contratos destacados: formalización del contrato para la construcción del nuevo Laboratorio de Neuroimagen en Somosaguas; licitación de cafeterías de Facultades de Ciencias Químicas, Educación y Ciencias Políticas.</p>
+          <div class="data-highlight"><strong>77,3 M€</strong> en contratos gestionados: 6,7 M€ en obras, 70,6 M€ en suministros y servicios. Contratos de limpieza: 32,6 M€.</div>
         </div>
 
         <div class="subsection">
           <h3>Gestión de Espacios y Patrimonio</h3>
-          <div class="data-highlight">
-            <strong>208 expedientes</strong> de alquiler y cesión de espacios tramitados · <strong>1,6 M€</strong> de ingresos.
-          </div>
-          <p>Inscripción en el Registro de la Propiedad de diversos edificios de la UCM: Aulario de Farmacia, Colegio Mayor Santa Teresa y Facultad de Ciencias de la Información. Eventos destacados: Noches del Botánico, Manantial de los Sueños y Chefs On Fire Madrid.</p>
-        </div>
-
-        <div class="subsection">
-          <h3>Vicegerencia de Gestión Académica</h3>
-          <p>Asume la gestión y coordinación de los procedimientos de acceso, admisión y matrícula de los estudios oficiales y propios de la UCM, incluyendo becas, ayudas y apoyo a la Delegación de Políticas Sociales.</p>
+          <div class="data-highlight"><strong>208 expedientes</strong> de alquiler y cesión de espacios · <strong>1,6 M€</strong> de ingresos.</div>
+          <p>Inscripción en el Registro de la Propiedad de: Aulario de Farmacia, Colegio Mayor Santa Teresa y Facultad de Ciencias de la Información.</p>
         </div>
       </div>
     </section>
 
-    <!-- DELEGACIÓN POLÍTICAS SOCIALES -->
+    <!-- XVIII. POLÍTICAS SOCIALES -->
     <section id="politicas-sociales" class="section-card" aria-labelledby="h-politicas-sociales">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">XVIII</span>
-        <h2 id="h-politicas-sociales">Delegación del Rector para las Políticas Sociales</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">XVIII</div>
+        <div class="section-hdr-text">
+          <h2 id="h-politicas-sociales">Delegación del Rector para las Políticas Sociales</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>La Delegación para las Políticas Sociales tiene como objetivo definir las líneas estratégicas que aseguren la igualdad de trato y la no discriminación, por ninguna condición o circunstancia personal o social, a toda persona miembro de la comunidad complutense. La equidad, la diversidad y la inclusión (EDI) son sus principios rectores.</p>
+        <p>La Delegación define las líneas estratégicas que aseguran la igualdad de trato y la no discriminación. La equidad, diversidad e inclusión (EDI) son sus principios rectores.</p>
 
         <div class="subsection">
           <h3>Unidad de Diversidad e Inclusión</h3>
-          <p>Por Acuerdo del Consejo de Gobierno de 24 de septiembre de 2024 (BOUC nº 31), se modificaron los artículos de funcionamiento de la Unidad, reforzando sus funciones y estructura de gobierno.</p>
-          <p>La Delegación participa en la Alianza Una Europa, en redes universitarias estatales del ámbito de atención de la Unidad y en programas y proyectos educativos y de investigación.</p>
+          <p>Por Acuerdo del Consejo de Gobierno de 24 de septiembre de 2024 (BOUC nº 31) se modificaron los artículos de funcionamiento de la Unidad, reforzando sus funciones y estructura de gobierno. La Delegación participa en la Alianza Una Europa y en redes universitarias estatales del ámbito de atención de la Unidad.</p>
         </div>
 
         <div class="subsection">
           <h3>Oficina Universitaria de Aprendizaje y Servicio</h3>
-          <p>Desarrolla programas propios que conectan el aprendizaje académico con el servicio a la comunidad, fomentando el compromiso social del estudiantado.</p>
+          <p>Desarrolla programas que conectan el aprendizaje académico con el servicio a la comunidad, fomentando el compromiso social del estudiantado.</p>
         </div>
       </div>
     </section>
 
-    <!-- DELEGACIÓN IGUALDAD -->
+    <!-- XIX. IGUALDAD -->
     <section id="igualdad" class="section-card" aria-labelledby="h-igualdad">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">XIX</span>
-        <h2 id="h-igualdad">Delegación del Rector para la Igualdad</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">XIX</div>
+        <div class="section-hdr-text">
+          <h2 id="h-igualdad">Delegación del Rector para la Igualdad</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>Acciones y datos destacables de la Delegación del Rector para Igualdad durante el año 2024.</p>
-
         <div class="subsection">
           <h3>II Plan de Igualdad de la UCM</h3>
           <ul>
@@ -1059,79 +823,74 @@
           <h3>Datos Relevantes</h3>
           <ul>
             <li>La Delegada del Rector para Igualdad pasó a ser miembro del Comité Ejecutivo en el Grupo de Trabajo de Igualdad de CRUE.</li>
-            <li>La Unidad de Igualdad es miembro de la Red de Unidades de Igualdad para la excelencia universitaria (RUIGEU).</li>
-            <li>Se realizaron modificaciones en todas las guías publicadas por la Unidad de Igualdad, especialmente la "Guía de prevención y detección del acoso sexual y por razón de sexo".</li>
+            <li>La Unidad de Igualdad es miembro de la Red RUIGEU de Unidades de Igualdad para la excelencia universitaria.</li>
+            <li>Se modificaron todas las guías publicadas por la Unidad de Igualdad, especialmente la "Guía de prevención y detección del acoso sexual y por razón de sexo".</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- DELEGACIÓN CULTURA PREVENTIVA -->
+    <!-- XX. CULTURA PREVENTIVA -->
     <section id="cultura-preventiva" class="section-card" aria-labelledby="h-cultura-preventiva">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">XX</span>
-        <h2 id="h-cultura-preventiva">Delegación del Rector para la Promoción de la Cultura Preventiva</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">XX</div>
+        <div class="section-hdr-text">
+          <h2 id="h-cultura-preventiva">Delegación del Rector para la Promoción de la Cultura Preventiva</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>Desde la Delegación del Rector para la Cultura Preventiva, y concretamente desde Universidad Complutense Saludable, se ha difundido todo lo relacionado con hábitos saludables entre estudiantes, PTGAS y Personal Docente e Investigador. Actividades realizadas:</p>
+        <p>Desde Universidad Complutense Saludable se han promovido hábitos saludables entre estudiantes, PTGAS y Personal Docente e Investigador. Actividades realizadas en 2024:</p>
         <ul>
-          <li>Talleres de regulación emocional (dos ediciones).</li>
-          <li>Taller de salud y bienestar.</li>
-          <li>Talleres sobre salud mental (dos ediciones).</li>
-          <li>Caminatas saludables (tres ediciones).</li>
-          <li>Jornadas sobre sufrimiento psíquico y cómo abordarlo.</li>
-          <li>Reparto de fruta y comidas saludables.</li>
-          <li>Rutas ciclistas (dos ediciones).</li>
-          <li>Jornadas sobre movilidad sostenible.</li>
-          <li>Programas sobre hábitos nutricionales saludables y ejercicio físico.</li>
+          <li>Talleres de regulación emocional (dos ediciones) y taller de salud y bienestar.</li>
+          <li>Talleres sobre salud mental (dos ediciones) y jornadas sobre sufrimiento psíquico.</li>
+          <li>Caminatas saludables (tres ediciones) y rutas ciclistas (dos ediciones).</li>
+          <li>Jornadas sobre movilidad sostenible y hábitos nutricionales saludables.</li>
           <li>Jornadas sobre prevención del suicidio en el ámbito universitario.</li>
-          <li>Día mundial sin tabaco.</li>
-          <li>Día mundial de la hipertensión arterial.</li>
+          <li>Día mundial sin tabaco y Día mundial de la hipertensión arterial.</li>
           <li>Jornada "Sal de dudas y disfruta tu sexualidad sin riesgos".</li>
         </ul>
       </div>
     </section>
 
-    <!-- DELEGACIÓN CONSORCIO URBANÍSTICO -->
+    <!-- XXI. CONSORCIO URBANÍSTICO -->
     <section id="consorcio" class="section-card" aria-labelledby="h-consorcio">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">XXI</span>
-        <h2 id="h-consorcio">Delegación del Rector para el Consorcio Urbanístico de la Ciudad Universitaria</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">XXI</div>
+        <div class="section-hdr-text">
+          <h2 id="h-consorcio">Delegación del Rector para el Consorcio Urbanístico de la Ciudad Universitaria</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>La Delegación del Rector para el Consorcio Urbanístico de la Ciudad Universitaria de Madrid y Campus Universitarios ha continuado impulsando la coordinación institucional y el desarrollo de iniciativas orientadas a la mejora de infraestructuras, sostenibilidad, accesibilidad y proyección urbana de los campus.</p>
-
         <div class="subsection">
           <h3>Ciudad Universitaria</h3>
           <ul>
             <li>Proyecto de cesión de las calles e infraestructuras de la Ciudad Universitaria al Ayuntamiento de Madrid: avances significativos entre el Ministerio de Fomento, el Consorcio y el Ayuntamiento.</li>
-            <li>Proyecto de reparación del saneamiento de la Ciudad Universitaria: reuniones entre el Rector y el consejero delegado del Canal de Isabel II para acometer el arreglo de los colectores del campus.</li>
+            <li>Proyecto de reparación del saneamiento: reuniones entre el Rector y el consejero delegado del Canal de Isabel II para el arreglo de los colectores del campus.</li>
             <li>Organización de las III Jornadas de Movilidad Sostenible.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- FUNDACIÓN GENERAL UCM -->
+    <!-- XXII. FUNDACIÓN GENERAL UCM -->
     <section id="fundacion" class="section-card" aria-labelledby="h-fundacion">
-      <div class="section-header">
-        <span class="section-num" aria-hidden="true">XXII</span>
-        <h2 id="h-fundacion">Fundación General de la Universidad Complutense de Madrid</h2>
+      <div class="section-hdr">
+        <div class="section-hdr-icon">XXII</div>
+        <div class="section-hdr-text">
+          <h2 id="h-fundacion">Fundación General de la Universidad Complutense de Madrid</h2>
+        </div>
       </div>
       <div class="section-body">
-        <p>La Fundación General de la Universidad Complutense de Madrid (FGUCM) es una institución sin ánimo de lucro, constituida en 1984 como resultado de la fusión de dieciocho Fundaciones de la UCM, fruto de donaciones privadas. Alcanzó en 2017 la condición de medio propio de la UCM.</p>
+        <p>La FGUCM es una institución sin ánimo de lucro constituida en 1984, medio propio de la UCM desde 2017.</p>
 
         <div class="subsection">
           <h3>Investigación y Transferencia</h3>
-          <div class="data-highlight">
-            <strong>Más de 2.400 proyectos</strong> de investigación gestionados · Valor cercano a los <strong>89 M€</strong>.
-          </div>
+          <div class="data-highlight"><strong>Más de 2.400 proyectos</strong> de investigación gestionados · Valor cercano a los <strong>89 M€</strong>.</div>
         </div>
 
         <div class="subsection">
           <h3>Formación y Cultura</h3>
-          <p>La FGUCM organizó congresos y jornadas con miles de asistentes, e impulsó numerosas iniciativas formativas: Cursos de Verano de El Escorial, Escuelas Complutenses, formación continua y enseñanza de idiomas, alcanzando a decenas de miles de personas.</p>
-          <p>Ha reforzado su actividad en espacios como San Lorenzo de El Escorial y ha desarrollado programas financiados por fondos europeos, entre ellos el programa Generación Digital PYMES.</p>
+          <p>La FGUCM organizó congresos y jornadas con miles de asistentes, Cursos de Verano de El Escorial, Escuelas Complutenses, formación continua y enseñanza de idiomas. Ha desarrollado programas financiados por fondos europeos, entre ellos el programa Generación Digital PYMES.</p>
         </div>
       </div>
     </section>
@@ -1139,20 +898,27 @@
   </main>
 </div>
 
-<!-- BOTÓN VOLVER ARRIBA -->
-<a href="#inicio" class="back-top" aria-label="Volver al inicio de la página">↑ Inicio</a>
-
-<footer>
-  <p>
-    Datos facilitados por el
-    <a href="https://www.ucm.es/directorio/?eid=904" target="_blank" rel="noopener">Gabinete del Rector ↗</a>
-    &mdash;
-    Informe de Situación de la Universidad Complutense de Madrid, año 2024
-    &mdash;
-    Presentado al Claustro Universitario el 2 de junio de 2025
-  </p>
-  <p style="margin-top:6px;">Este documento cumple con el Real Decreto 1112/2018 sobre accesibilidad de contenidos digitales del sector público (WCAG 2.1, nivel AA).</p>
+<footer class="footer">
+  <div>Datos facilitados por el <a href="https://www.ucm.es/directorio/?eid=904" target="_blank" rel="noopener">Gabinete del Rector ↗</a> — Informe de Situación UCM 2024 — Presentado al Claustro el 2 de junio de 2025</div>
+  <div>Portal de Transparencia — <a href="https://www.ucm.es/portaldetransparencia" target="_blank" rel="noopener">Universidad Complutense de Madrid ↗</a></div>
 </footer>
 
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver al inicio">↑</button>
+
+<script>
+const navLinks = document.querySelectorAll('.nav-list a[href^="#"]');
+const sections = document.querySelectorAll('section[id]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    }
+  });
+}, { threshold: 0.2, rootMargin: '-60px 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => backTop.classList.toggle('visible', window.scrollY > 300));
+</script>
 </body>
 </html>
